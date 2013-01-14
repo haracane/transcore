@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "transcore"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kenji Hara"]
@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "bin/transcore",
     "lib/transcore.rb",
     "lib/transcore/command/convert.rb",
+    "lib/transcore/command/default.rb",
     "lib/transcore/command/transpose.rb",
     "spec/bin/transcore_spec.rb",
     "spec/lib/transcore/command/convert_spec.rb",
