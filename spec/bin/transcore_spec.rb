@@ -26,4 +26,27 @@ describe "bin/transcore" do
       end
     end
   end
+
+  context "when command = +1" do
+    input = "C Am F G7"
+    context "when input is '#{input}'" do
+      it "should output #{"C# A#m F# G#7".inspect}" do
+        result = `echo '#{input}' | ruby -I lib ./bin/transcore +1`
+        result.chomp!
+        result.should == "C# A#m F# G#7"
+      end
+    end
+  end
+
+  context "when command = flat" do
+    input = "F Dm A# C"
+    context "when input is '#{input}'" do
+      it "should output \"#{"F Dm B♭ C"}\"" do
+        result = `echo '#{input}' | ruby -I lib ./bin/transcore flat`
+        result.chomp!
+        result.should == "F Dm B♭ C"
+      end
+    end
+  end
+
 end
