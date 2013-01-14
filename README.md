@@ -12,6 +12,7 @@ Lapidary should work identically on:
 ## Install
 
 You can install transcore by gem.
+
     gem install transcore
 
 ## Usage
