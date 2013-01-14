@@ -1,6 +1,47 @@
-# transcore
+# Transcore
 
-transcore RubyGem.
+Music score converter.
+
+## Supported Ruby versions and implementations
+Lapidary should work identically on:
+
+* Ruby 1.9.3
+* Ruby 1.9.2
+* Ruby 1.8.7
+
+## Install
+
+You can install transcore by gem.
+    gem install transcore
+
+## Usage
+
+### Change key
+    $ echo "C Am F G7" | transcore +1
+    C# A#m F# G#7
+    $ echo "C Am F G7" | transcore -1
+    B G#m E F#7
+
+### Convert sharp to flat
+    $ echo "F Dm A# C7" | transcore flat
+    F Dm B♭ C7
+
+### Convert flat to sharp
+    $ echo "A G♭m D E7" | transcore sharp
+    A F#m D E7
+
+### Convert html-score to text-score
+    $ cat score.html
+    <span>C</span>
+    <span>Lalala</span>
+    <span>F</span>
+    <span>lala</span>
+    <br/>
+    <span>G7</span>
+    <span>lalala...</span>
+    $ cat score.html | transcore text-score
+    C  Lalala  F  lala
+    G7  lalala...
 
 ## Contributing to transcore
  
