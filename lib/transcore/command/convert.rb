@@ -2,22 +2,7 @@ module Transcore
   module Command
     module Convert
       def self.parse_opts(argv)
-        next_argv = []
-        while 0 < argv.size do
-          val = argv.shift
-          case val
-          when '--sharp'
-            flat_flag = true
-          when '--flat'
-            flat_flag = false
-          when '--doremi'
-            doremi_flag = false
-          else 
-            next_argv.push val
-          end
-        end
-        argv.push(*next_argv)
-        return {:flat_flag => flat_flag, }
+        return {}
       end
       
       def self.run(argv, input_stream=$stdin, output_stream=$stdout)
