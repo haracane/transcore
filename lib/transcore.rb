@@ -1,6 +1,7 @@
 require "logger"
 
 require "transcore/command/convert"
+require "transcore/command/default"
 require "transcore/command/transpose"
 
 module Transcore
