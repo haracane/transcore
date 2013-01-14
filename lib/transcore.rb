@@ -1,5 +1,8 @@
 require "logger"
 
+require "transcore/command/convert"
+require "transcore/command/transpose"
+
 module Transcore
   # Reader method for the logger of Lapidary
   # @return [Logger] Logger object
