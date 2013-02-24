@@ -39,12 +39,11 @@ module Transcore
         rest = input
         step.times do |i|
           next_str = ""
-          while /(^|\s|\/|on)(A#|A|B|C#|C|D#|D|E|F#|F|G#|G)([^\s]*)/ =~ rest
+          while /(^|\s|\/|on)(A#|A|B|C#|C|D#|D|E|F#|F|G#|G)/ =~ rest
             next_str += $` + $1
             match_str = $2
-            post_str = $3
             rest = $'
-            next_str += NEXT_TONE[match_str] + post_str
+            next_str += NEXT_TONE[match_str]
           end
           rest = next_str + rest
         end
