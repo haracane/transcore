@@ -1,0 +1,57 @@
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - vendor/**/*
+    - db/schema.rb
+    - app/models/legacy/**
+    - db/migrate/2013*
+    - db/migrate/20140[1-8]*
+    - config/initializers/*patch*
+
+LineLength:
+  Max: 120
+
+MethodLength:
+  Max: 15
+
+Documentation:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+NumericLiterals:
+  MinDigits: 7
+
+StringLiterals:
+  EnforcedStyle: single_quotes
+
+SpaceBeforeBlockBraces:
+  EnforcedStyle: space
+
+SpaceInsideBlockBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+  SpaceBeforeBlockParameters: true
+
+SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+  EnforcedStyleForEmptyBraces: no_space
+
+DotPosition:
+  EnforcedStyle: trailing
+
+RaiseArgs:
+  EnforcedStyle: exploded
+
+SignalException:
+  EnforcedStyle: semantic
+
+Style/IndentationConsistency:
+  Enabled: true
+
+Style/DoubleNegation:
+  Enabled: false
