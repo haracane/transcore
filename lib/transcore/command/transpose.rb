@@ -1,4 +1,3 @@
-# coding: utf-8
 module Transcore
   module Command
     module Transpose
@@ -24,11 +23,11 @@ module Transcore
       def self.run(argv, input_stream = $stdin, output_stream = $stdout)
         step = (argv.shift || 1).to_i
         input = input_stream.read
-        # input.tr!("Ａ-Ｇ", "A-G")
+
         input.gsub!(/　/, '  ')
         input.gsub!(/ +$/, '')
         input.gsub!(/(^|\s|\/|on)([ACDFG])＃/, '\\1\\2#')
-        # input.gsub!(/([ABDEG])b/, "\\1♭")
+
         input.gsub!(/(^|\s|\/|on)A♭/, '\\1G#')
         input.gsub!(/(^|\s|\/|on)B♭/, '\\1A#')
         input.gsub!(/(^|\s|\/|on)D♭/, '\\1C#')
