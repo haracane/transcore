@@ -1,4 +1,3 @@
-# coding: utf-8
 require 'spec_helper'
 
 describe Transcore::Command::Convert do
@@ -69,9 +68,9 @@ describe Transcore::Command::Convert do
           Transcore::Command::Convert.run(['text-score'], input_read, output_write)
           output_write.close
           result = output_read.read
-          # STDERR.puts result
+
           result = result.split(/\r?\n/)
-          # result.each do |line| STDERR.puts line.inspect end
+
           result.shift.should eq 'C  word1  Am  word2'
           result.shift.should eq 'word3  F  word4  G7  word5'
           result.size.should eq 0

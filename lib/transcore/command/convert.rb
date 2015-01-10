@@ -1,4 +1,3 @@
-# coding: utf-8
 module Transcore
   module Command
     module Convert
