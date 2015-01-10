@@ -1,3 +1,3 @@
-require "rspec/collection_matchers"
-require "rspec/its"
-require "transcore"
+require 'rspec/collection_matchers'
+require 'rspec/its'
+require 'transcore'

@@ -1,8 +1,8 @@
-require "logger"
+require 'logger'
 
-require "transcore/command/convert"
-require "transcore/command/default"
-require "transcore/command/transpose"
+require 'transcore/command/convert'
+require 'transcore/command/default'
+require 'transcore/command/transpose'
 
 module Transcore
   # Reader method for the logger of Lapidary
@@ -10,18 +10,18 @@ module Transcore
   def self.logger
     if @logger.nil?
       @logger = (rails_logger || default_logger)
-      @logger.formatter = proc { |severity, datetime, progname, msg|
+      @logger.formatter = proc { |severity, datetime, _progname, msg|
         datetime.strftime("[%Y-%m-%d %H:%M:%S](#{severity}) #{msg}\n")
       }
     end
-    return @logger
+    @logger
   end
 
   # Reader method for the rails logger of Lapidary
   # @return [Logger] Logger object
   def self.rails_logger
     (defined?(Rails) && Rails.respond_to?(:logger) && Rails.logger) ||
-    (defined?(RAILS_DEFAULT_LOGGER) && RAILS_DEFAULT_LOGGER.respond_to?(:debug) && RAILS_DEFAULT_LOGGER)
+      (defined?(RAILS_DEFAULT_LOGGER) && RAILS_DEFAULT_LOGGER.respond_to?(:debug) && RAILS_DEFAULT_LOGGER)
   end
 
   # Reader method for the default logger of Lapidary
@@ -34,7 +34,7 @@ module Transcore
 
   # Writer method for the logger of Lapidary
   # @param logger [Logger]
-  def self.logger=(logger)
-    @logger = logger
+  class << self
+    attr_writer :logger
   end
 end

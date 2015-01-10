@@ -1,16 +1,16 @@
 #!/usr/bin/env ruby
 
-require "transcore"
+require 'transcore'
 
 command = ARGV[0]
 
 exit_code = 0
 
 case command
-when "transpose"
+when 'transpose'
   ARGV.shift
   exit_code = Transcore::Command::Transpose.run(ARGV) || 0
-when "convert"
+when 'convert'
   ARGV.shift
   exit_code = Transcore::Command::Convert.run(ARGV) || 0
 else
