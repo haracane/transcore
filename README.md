@@ -22,12 +22,20 @@ You can install transcore by gem.
     B G#m E F#7
 
 ### Convert sharp to flat
-    $ echo "F Dm A# C7" | transcore flat
+    $ echo "F Dm A# C7" | transcore to-flat
     F Dm B♭ C7
 
 ### Convert flat to sharp
-    $ echo "A G♭m D E7" | transcore sharp
+    $ echo "A G♭m D E7" | transcore to-sharp
     A F#m D E7
+
+### Convert from doremi
+    $ echo "doremifa solatido" | transcore from-doremi
+    CDEF GABC
+
+### Convert to japanese
+    $ echo "CDEF GABC" | transcore to-japanese
+    ドレミファ ソラシド
 
 ### Convert html-score to text-score
     $ cat score.html
@@ -38,7 +46,7 @@ You can install transcore by gem.
     <br/>
     <span>G7</span>
     <span>lalala...</span>
-    $ cat score.html | transcore text-score
+    $ cat score.html | transcore from-html
     C  Lalala  F  lala
     G7  lalala...
 
