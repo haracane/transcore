@@ -6,7 +6,7 @@ describe 'bin/transcore' do
     input = 'C Am F G7'
     context 'when parameter = 1' do
       context "when input is '#{input}'" do
-        it "should output #{'C# A#m F# G#7'.inspect}" do
+        it "should output 'C# A#m F# G#7'" do
           result = `echo '#{input}' | ruby -I lib ./bin/transcore transpose 1`
           result.chomp!
           result.should == 'C# A#m F# G#7'
@@ -19,7 +19,7 @@ describe 'bin/transcore' do
     context 'when sub-command = flat' do
       input = 'F Dm A# C'
       context "when input is '#{input}'" do
-        it "should output \"#{'F Dm B♭ C'}\"" do
+        it "should output 'F Dm B♭ C'" do
           result = `echo '#{input}' | ruby -I lib ./bin/transcore convert flat`
           result.chomp!
           result.should == 'F Dm B♭ C'
@@ -31,7 +31,7 @@ describe 'bin/transcore' do
   context 'when command = +1' do
     input = 'C Am F G7'
     context "when input is '#{input}'" do
-      it "should output #{'C# A#m F# G#7'.inspect}" do
+      it "should output 'C# A#m F# G#7'" do
         result = `echo '#{input}' | ruby -I lib ./bin/transcore +1`
         result.chomp!
         result.should == 'C# A#m F# G#7'
@@ -42,7 +42,7 @@ describe 'bin/transcore' do
   context 'when command = flat' do
     input = 'F Dm A# C'
     context "when input is '#{input}'" do
-      it "should output \"#{'F Dm B♭ C'}\"" do
+      it "should output 'F Dm B♭ C'" do
         result = `echo '#{input}' | ruby -I lib ./bin/transcore flat`
         result.chomp!
         result.should == 'F Dm B♭ C'

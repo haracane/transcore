@@ -7,7 +7,6 @@ module Transcore
       end
 
       def self.run(argv, input_stream = $stdin, output_stream = $stdout)
-        params = parse_opts(argv)
         command = argv.shift
         input = input_stream.read
 

@@ -3,9 +3,9 @@ require 'spec_helper'
 
 describe Transcore::Command::Convert do
   describe '.run(argv, input_stream, output_stream)' do
-    context "when argv = #{['flat'].inspect}" do
-      context "when input = #{'F Dm A# C'.inspect}" do
-        it "should output \"#{'F Dm B♭ C'}\"" do
+    context "when argv = 'flat'" do
+      context "when input = 'F Dm A# C'" do
+        it "should output 'F Dm B♭ C'" do
           input = 'F Dm A# C'
           input_read, input_write = *IO.pipe
           output_read, output_write = *IO.pipe
@@ -14,14 +14,14 @@ describe Transcore::Command::Convert do
           Transcore::Command::Convert.run(['flat'], input_read, output_write)
           output_write.close
           result = output_read.read
-          result.chomp.should == 'F Dm B♭ C'
+          result.chomp.should eq 'F Dm B♭ C'
         end
       end
     end
 
-    context "when argv = #{['sharp'].inspect}" do
-      context "when input = \"#{'F Dm B♭ C'}\"" do
-        it "should output #{'F Dm A# C'.inspect}" do
+    context "when argv = 'sharp'" do
+      context "when input = 'F Dm B♭ C'" do
+        it "should output 'F Dm A# C'" do
           input = 'F Dm B♭ C'
           input_read, input_write = *IO.pipe
           output_read, output_write = *IO.pipe
@@ -30,14 +30,14 @@ describe Transcore::Command::Convert do
           Transcore::Command::Convert.run(['sharp'], input_read, output_write)
           output_write.close
           result = output_read.read
-          result.chomp.should == 'F Dm A# C'
+          result.chomp.should eq 'F Dm A# C'
         end
       end
     end
 
-    context "when argv = #{['doremi'].inspect}" do
-      context "when input = #{'CDEFGAB'.inspect}" do
-        it "should output \"#{'ドレミファソラシド'}\"" do
+    context "when argv = 'doremi'" do
+      context "when input = 'CDEFGAB'" do
+        it "should output 'ドレミファソラシド'" do
           input = 'CDEFGAB'
           input_read, input_write = *IO.pipe
           output_read, output_write = *IO.pipe
@@ -46,12 +46,12 @@ describe Transcore::Command::Convert do
           Transcore::Command::Convert.run(['doremi'], input_read, output_write)
           output_write.close
           result = output_read.read
-          result.chomp.should == 'ドレミファソラシ'
+          result.chomp.should eq 'ドレミファソラシ'
         end
       end
     end
 
-    context "when argv = #{['text-score'].inspect}" do
+    context "when argv = 'text-score'" do
       context 'when input is inline-chord html' do
         it 'should output inline-chord score' do
           input = <<-EOF
@@ -72,14 +72,14 @@ describe Transcore::Command::Convert do
           # STDERR.puts result
           result = result.split(/\r?\n/)
           # result.each do |line| STDERR.puts line.inspect end
-          result.shift.should == 'C  word1  Am  word2'
-          result.shift.should == 'word3  F  word4  G7  word5'
-          result.size.should == 0
+          result.shift.should eq 'C  word1  Am  word2'
+          result.shift.should eq 'word3  F  word4  G7  word5'
+          result.size.should eq 0
         end
       end
     end
 
-    context "when argv = #{['text-score'].inspect}" do
+    context "when argv = 'text-score'" do
       context 'when input is super-chord html' do
         it 'should output super-chord score' do
           input = <<-EOF
@@ -98,11 +98,11 @@ describe Transcore::Command::Convert do
           # STDERR.puts result
           result = result.split(/\r?\n/)
           # result.each do |line| STDERR.puts line.inspect end
-          result.shift.should == 'C'
-          result.shift.should == 'word1'
-          result.shift.should == 'Am     F G7'
-          result.shift.should == 'word2 word3 word4'
-          result.size.should == 0
+          result.shift.should eq 'C'
+          result.shift.should eq 'word1'
+          result.shift.should eq 'Am     F G7'
+          result.shift.should eq 'word2 word3 word4'
+          result.size.should eq 0
         end
       end
     end

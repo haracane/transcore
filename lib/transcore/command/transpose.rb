@@ -22,7 +22,6 @@ module Transcore
       end
 
       def self.run(argv, input_stream = $stdin, output_stream = $stdout)
-        params = parse_opts(argv)
         step = (argv.shift || 1).to_i
         input = input_stream.read
         # input.tr!("Ａ-Ｇ", "A-G")
